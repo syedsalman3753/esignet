@@ -25,7 +25,7 @@ on:
 
 jobs:
   tag-branch:
-    uses: mosip/kattu/.github/workflows/tag.yml@master
+    uses: syedsalman3753/kattu/.github/workflows/tag.yml@MOSIP-29709
     with:
       TAG: ${{ inputs.TAG }}
       BODY: ${{ inputs.BODY }}
