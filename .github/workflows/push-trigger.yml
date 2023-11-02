@@ -20,8 +20,6 @@ on:
       - develop
       - MOSIP*
       - release*
-    tags:
-      - '*'
 
 jobs:
   build-maven-esignet:
