@@ -14,22 +14,40 @@ on:
         type: string
       PRE_RELEASE:
         description: 'Pre-release? True/False'
-        required: true
-        default: False
+        required: false
+        default: 'false'
         type: string
       DRAFT:
         description: 'Draft? True/False'
         required: false
-        default: False
+        default: 'false'
         type: string
+      ONLY_TAG:
+        description: "Only Tag"
+        required: false
+        type: string
+        default: 'false'
+      BRANCH:
+        description: 'Branch name'
+        required: true
+        type: string
+      LATEST:
+        description: 'Latest release'
+        required: false
+        type: string
+        default: 'true'
 
 jobs:
   tag-branch:
-    uses: mosip/kattu/.github/workflows/tag.yml@master
+    uses: syedsalman3753/kattu/.github/workflows/tag.yml@MOSIP-29709
     with:
       TAG: ${{ inputs.TAG }}
       BODY: ${{ inputs.BODY }}
       PRE_RELEASE: ${{ inputs.PRE_RELEASE }}
       DRAFT: ${{ inputs.DRAFT }}
+      ONLY_TAG: ${{ inputs.ONLY_TAG }}
+      BRANCH: ${{ inputs.BRANCH }}
+      LATEST: ${{ inputs.LATEST }}
     secrets:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}      
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      TOKEN: ${{ secrets.TOKEN }}
