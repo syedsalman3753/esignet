@@ -2,7 +2,7 @@ name: Maven Package upon a push
 
 on:
   release:
-    types: [published, created]
+    types: [published, created, released]
   pull_request:
     types: [opened, reopened, synchronize]
   workflow_dispatch:
