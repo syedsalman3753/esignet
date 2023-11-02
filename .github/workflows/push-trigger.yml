@@ -2,7 +2,7 @@ name: Maven Package upon a push
 
 on:
   release:
-    types: [published, released]
+    types: [published, created]
   pull_request:
     types: [opened, reopened, synchronize]
   workflow_dispatch:
@@ -20,8 +20,7 @@ on:
       - develop
       - MOSIP*
       - release*
-    tags:
-      - *
+
 
 jobs:
   build-maven-esignet:
