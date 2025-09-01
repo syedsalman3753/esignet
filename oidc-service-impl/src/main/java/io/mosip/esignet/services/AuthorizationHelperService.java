@@ -189,6 +189,12 @@ public class AuthorizationHelperService {
                                                         List<AuthChallenge> challengeList, OIDCTransaction transaction) {
         KycAuthResult kycAuthResult;
         try {
+            log.info("Calling doKycAuth with relyingPartyId={}, clientId={}, authTransactionId={}, individualId={}, challenges={}",
+                    transaction.getRelyingPartyId(),
+                    transaction.getClientId(),
+                    transaction.getAuthTransactionId(),
+                    individualId,
+                    challengeList);
             kycAuthResult = authenticationWrapper.doKycAuth(transaction.getRelyingPartyId(), transaction.getClientId(),
                     new KycAuthDto(transaction.getAuthTransactionId(), individualId, challengeList));
         } catch (KycAuthException e) {
