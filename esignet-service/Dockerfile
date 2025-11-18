@@ -1,4 +1,5 @@
-FROM eclipse-temurin:11
+FROM eclipse-temurin:11-jre-jammy
+RUN apt-get update && apt-get install -y libssl1.1
 
 ARG SOURCE
 ARG COMMIT_HASH
