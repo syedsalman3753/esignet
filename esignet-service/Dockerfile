@@ -1,5 +1,6 @@
-FROM eclipse-temurin:11-jre-jammy
-RUN apt-get update && apt-get install -y libssl1.1
+FROM eclipse-temurin:11-jre-focal
+
+RUN apt-get update && apt-get install -y libssl1.1 softhsm2
 
 ARG SOURCE
 ARG COMMIT_HASH
