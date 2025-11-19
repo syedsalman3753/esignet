@@ -173,7 +173,7 @@ public class OAuthServiceImpl implements OAuthService {
             throw new InvalidRequestException(ErrorConstants.INVALID_CLIENT_ID);
 
         log.info("token redirect uri expected: " + transaction.getRedirectUri() + " ,actual: " + tokenRequest.getRedirect_uri());
-        if(!transaction.getRedirectUri().equals(tokenRequest.getRedirect_uri()))
+        if(!transaction.getRedirectUri().contains(tokenRequest.getRedirect_uri()))
             throw new InvalidRequestException(ErrorConstants.INVALID_REDIRECT_URI);
 
         validatePKCE(transaction.getProofKeyCodeExchange(), tokenRequest.getCode_verifier());
