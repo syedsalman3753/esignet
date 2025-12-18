@@ -346,8 +346,8 @@ public class ConsentHelperServiceTest {
 
         PublicKeyRegistry publicKeyRegistry =new PublicKeyRegistry();
         publicKeyRegistry.setCertificate(certificateString);
-        Mockito.when(authorizationHelperService.getIndividualId(oidcTransaction)).thenReturn("individualId");
-        Mockito.when(publicKeyRegistryService.findFirstByIdHashAndThumbprintAndExpiredtimes(Mockito.any(),Mockito.any())).thenReturn(Optional.of(publicKeyRegistry));
+        // Mockito.when(authorizationHelperService.getIndividualId(oidcTransaction)).thenReturn("individualId");
+        // Mockito.when(publicKeyRegistryService.findFirstByIdHashAndThumbprintAndExpiredtimes(Mockito.any(),Mockito.any())).thenReturn(Optional.of(publicKeyRegistry));
 
         Mockito.when(consentService.getUserConsent(userConsentRequest)).thenReturn(Optional.of(consentDetail));
         consentHelperService.processConsent(oidcTransaction,true);
@@ -432,8 +432,8 @@ public class ConsentHelperServiceTest {
 
         PublicKeyRegistry publicKeyRegistry =new PublicKeyRegistry();
         publicKeyRegistry.setCertificate(certificateString);
-        Mockito.when(authorizationHelperService.getIndividualId(oidcTransaction)).thenReturn("individualId");
-        Mockito.when(publicKeyRegistryService.findFirstByIdHashAndThumbprintAndExpiredtimes(Mockito.any(),Mockito.any())).thenReturn(Optional.empty());
+        // Mockito.when(authorizationHelperService.getIndividualId(oidcTransaction)).thenReturn("individualId");
+        // Mockito.when(publicKeyRegistryService.findFirstByIdHashAndThumbprintAndExpiredtimes(Mockito.any(),Mockito.any())).thenReturn(Optional.empty());
 
         Mockito.when(consentService.getUserConsent(userConsentRequest)).thenReturn(Optional.of(consentDetail));
 
