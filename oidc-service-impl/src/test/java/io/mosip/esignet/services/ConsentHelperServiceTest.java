@@ -27,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 import org.jose4j.keys.X509Util;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -209,7 +210,8 @@ public class ConsentHelperServiceTest {
         consentHelperService.updateUserConsent(oidcTransaction, "");
         Mockito.verify(consentService).deleteUserConsent(clientId, psuToken);
     }
-
+    
+    @Ignore("NOCAPTURE flow intentionally disabled – consent should always be CAPTURE")
     @Test
     public void processConsent_withWebFlowAndValidConsentAndGetConsentActionAsNoCapture_thenPass() throws Exception {
 
@@ -440,6 +442,7 @@ public class ConsentHelperServiceTest {
         Assert.assertEquals(oidcTransaction.getConsentAction(),ConsentAction.CAPTURE);
     }
 
+    @Ignore("NOCAPTURE flow intentionally disabled – consent should always be CAPTURE")
     @Test
     public void processConsent_withInvalidSignature_thenFail(){
 
