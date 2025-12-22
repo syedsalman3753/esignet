@@ -3,15 +3,15 @@ CREATE DATABASE mosip_esignet
 	LC_COLLATE = 'en_US.UTF-8' 
 	LC_CTYPE = 'en_US.UTF-8' 
 	TABLESPACE = pg_default 
-	OWNER = postgres
+	OWNER = esignetuser
 	TEMPLATE  = template0;
 
 COMMENT ON DATABASE mosip_esignet IS 'e-Signet related data is stored in this database';
 
-\c mosip_esignet postgres
+\c mosip_esignet esignetuser
 
 DROP SCHEMA IF EXISTS esignet CASCADE;
 CREATE SCHEMA esignet;
-ALTER SCHEMA esignet OWNER TO postgres;
+ALTER SCHEMA esignet OWNER TO esignetuser;
 ALTER DATABASE mosip_esignet SET search_path TO esignet,pg_catalog,public;
 
