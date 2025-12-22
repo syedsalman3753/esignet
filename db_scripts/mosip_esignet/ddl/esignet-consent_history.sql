@@ -27,7 +27,7 @@ create table esignet.consent_history (
     permitted_scopes VARCHAR,
     PRIMARY KEY (id)
 );
-CREATE INDEX IF NOT EXISTS idx_esignet.consent_history_psu_client ON esignet.consent_history(psu_token, client_id);
+CREATE INDEX IF NOT EXISTS idx_consent_history_psu_client ON esignet.consent_history(psu_token, client_id);
 
 COMMENT ON TABLE esignet.consent_history IS 'Contains user consent details';
 
