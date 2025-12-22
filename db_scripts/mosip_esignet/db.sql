@@ -8,7 +8,7 @@ CREATE DATABASE mosip_esignet
 
 COMMENT ON DATABASE mosip_esignet IS 'e-Signet related data is stored in this database';
 
-\c mosip_esignet esignetuser
+\c mosip_esignet postgres
 
 DROP SCHEMA IF EXISTS esignet CASCADE;
 CREATE SCHEMA esignet;
