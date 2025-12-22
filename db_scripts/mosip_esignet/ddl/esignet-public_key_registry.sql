@@ -26,7 +26,7 @@ CREATE TABLE esignet.public_key_registry(
 	certificate character varying NOT NULL,
 	cr_dtimes timestamp NOT NULL,
 	thumbprint character varying NOT NULL,
-	CONSTRAINT pk_esignet.public_key_registry PRIMARY KEY (id_hash, auth_factor)
+	CONSTRAINT pk_public_key_registry PRIMARY KEY (id_hash, auth_factor)
 );
 
 COMMENT ON TABLE esignet.public_key_registry IS 'Contains id_hash and their respective PSU Tokens,public keys and wallet binding ids.';
