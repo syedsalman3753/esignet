@@ -27,7 +27,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 import org.jose4j.keys.X509Util;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -211,7 +210,6 @@ public class ConsentHelperServiceTest {
         Mockito.verify(consentService).deleteUserConsent(clientId, psuToken);
     }
     
-    @Ignore("NOCAPTURE flow intentionally disabled – consent should always be CAPTURE")
     @Test
     public void processConsent_withWebFlowAndValidConsentAndGetConsentActionAsNoCapture_thenPass() throws Exception {
 
@@ -346,8 +344,8 @@ public class ConsentHelperServiceTest {
 
         PublicKeyRegistry publicKeyRegistry =new PublicKeyRegistry();
         publicKeyRegistry.setCertificate(certificateString);
-        // Mockito.when(authorizationHelperService.getIndividualId(oidcTransaction)).thenReturn("individualId");
-        // Mockito.when(publicKeyRegistryService.findFirstByIdHashAndThumbprintAndExpiredtimes(Mockito.any(),Mockito.any())).thenReturn(Optional.of(publicKeyRegistry));
+        Mockito.when(authorizationHelperService.getIndividualId(oidcTransaction)).thenReturn("individualId");
+        Mockito.when(publicKeyRegistryService.findFirstByIdHashAndThumbprintAndExpiredtimes(Mockito.any(),Mockito.any())).thenReturn(Optional.of(publicKeyRegistry));
 
         Mockito.when(consentService.getUserConsent(userConsentRequest)).thenReturn(Optional.of(consentDetail));
         consentHelperService.processConsent(oidcTransaction,true);
@@ -432,8 +430,8 @@ public class ConsentHelperServiceTest {
 
         PublicKeyRegistry publicKeyRegistry =new PublicKeyRegistry();
         publicKeyRegistry.setCertificate(certificateString);
-        // Mockito.when(authorizationHelperService.getIndividualId(oidcTransaction)).thenReturn("individualId");
-        // Mockito.when(publicKeyRegistryService.findFirstByIdHashAndThumbprintAndExpiredtimes(Mockito.any(),Mockito.any())).thenReturn(Optional.empty());
+        Mockito.when(authorizationHelperService.getIndividualId(oidcTransaction)).thenReturn("individualId");
+        Mockito.when(publicKeyRegistryService.findFirstByIdHashAndThumbprintAndExpiredtimes(Mockito.any(),Mockito.any())).thenReturn(Optional.empty());
 
         Mockito.when(consentService.getUserConsent(userConsentRequest)).thenReturn(Optional.of(consentDetail));
 
@@ -442,7 +440,6 @@ public class ConsentHelperServiceTest {
         Assert.assertEquals(oidcTransaction.getConsentAction(),ConsentAction.CAPTURE);
     }
 
-    @Ignore("NOCAPTURE flow intentionally disabled – consent should always be CAPTURE")
     @Test
     public void processConsent_withInvalidSignature_thenFail(){
 

@@ -110,7 +110,7 @@ export default function OtpGet({
       setStatus({ state: states.LOADING, msg: "sending_otp_msg" });
       const sendOtpResponse = await post_SendOtp(
         transactionId,
-        vid,
+        vid.toLowerCase(),
         otpChannels,
         captchaToken
       );

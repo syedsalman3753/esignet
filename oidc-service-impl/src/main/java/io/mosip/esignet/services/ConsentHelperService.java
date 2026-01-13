@@ -75,8 +75,7 @@ public class ConsentHelperService {
             transaction.setAcceptedClaims(List.of());
             transaction.setPermittedScopes(List.of());
         } else {
-            //ConsentAction consentAction = consent.isEmpty() ? ConsentAction.CAPTURE : evaluateConsentAction(transaction, consent.get(), linked);
-            ConsentAction consentAction = ConsentAction.CAPTURE;
+            ConsentAction consentAction = consent.isEmpty() ? ConsentAction.CAPTURE : evaluateConsentAction(transaction, consent.get(), linked);
 
             transaction.setConsentAction(consentAction);
 
