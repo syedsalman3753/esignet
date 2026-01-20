@@ -295,15 +295,15 @@ export default function Consent({
         return;
       }
 
-      let params = "?";
+      const url = new URL(response.redirectUri);
 
       if (response.state) {
-        params = params + "state=" + response.state + "&";
+        url.searchParams.set("state", response.state);
       }
 
-      window.location.replace(
-        response.redirectUri + params + "code=" + response.code
-      );
+      url.searchParams.set("code", response.code);
+
+      window.location.replace(url.toString());
     } catch (error) {
       redirectOnError("authorization_failed_msg", error.message);
     }
